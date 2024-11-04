@@ -1,20 +1,21 @@
 import { useSelector,useDispatch } from "react-redux";
-import { deletetodo } from "../actions";
+// import { deletetodo } from "../actions";
+import { deleteTodo } from "../features/todo/todoslice";
 import React from 'react'
 
 const TaskList = () => {
-    const task = useSelector((state)=>state.task);
+    const task = useSelector((state)=>state.todo.tasks);
     const dispatch = useDispatch();
-   //console.log(task)
+   console.log(task)
     const handleData = (id)=>{
-        dispatch(deletetodo(id))
+        dispatch(deleteTodo(id))
     }
   return (
     <div>
       <div>
         <h3>Your listed task:</h3>
         <ul>{
-            task.task.map((task)=>(
+            task.map((task)=>(
                 <li key={task.id}>
                 {task.text}
                 <button onClick={()=>handleData(task.id)}>delete</button>
@@ -26,5 +27,4 @@ const TaskList = () => {
     </div>
   )
 }
-
-export default TaskList
+export default TaskList;

@@ -1,6 +1,7 @@
-import { addtodo } from "../actions";
+// import { addtodo } from "../actions";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
+import { addTodo } from "../features/todo/todoslice";
 
 const Task = ()=>{
     const dispatch = useDispatch();
@@ -9,7 +10,7 @@ const Task = ()=>{
     function addNewTask( ) {
         const task = inputRef.current.value.trim();
         if (task !== '') {
-            dispatch(addtodo(task));
+            dispatch(addTodo(task));
             inputRef.current.value = '';
         }
     }
