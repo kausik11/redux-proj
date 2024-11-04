@@ -1,4 +1,4 @@
-
+//action creater function
 
 const addtodo = (text)=>{
   return{
